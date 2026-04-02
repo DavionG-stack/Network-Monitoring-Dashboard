@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Network Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <meta http-equiv="refresh" content="5">
+</head>
+
+<body>
+    <h1>📡 IT Network Monitoring Dashboard</h1>
+
+    <div id="container"></div>
+
+    <script>
+        async function loadData() {
+            const res = await fetch("/data");
+            const data = await res.json();
+
+            let html = "";
+
+            data.forEach(d => {
+                html += `
+                    <div class="card ${d.status}">
+                        <h2>${d.device}</h2>
+                        <p>Status: ${d.status}</p>
+                        ${d.changed ? "<p class='alert'>STATUS CHANGED</p>" : ""}
+                    </div>
+                `;
+            });
+
+            document.getElementById("container").innerHTML = html;
+        }
+
+        loadData();
+        setInterval(loadData, 5000);
+    </script>
+</body>
+</html>
