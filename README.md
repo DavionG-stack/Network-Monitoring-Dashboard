@@ -69,6 +69,6 @@ http://127.0.0.1:5000
 
 <div align="center">
 
-### ✨ <b>Ta-da! You’re now running the Network Monitoring Dashboard</b>
+### ✨ <b>Ta-da! You’re now running the Network Monitoring Dashboard</b> ✨
 
 </div>
